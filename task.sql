@@ -12,4 +12,8 @@ inset into task(task_id,task_name,task_performer,deadline_date,completed_date,st
 select*from intask where task_status='completed';
 alter table intask add(modify_date date sefault sysdate,priority number ); 
 constraint priority_uq unique(priority);
+insert into intask(task_id,task_name,task_performer,deadline_date,completed_date,task_status,modify_date,priority) values(1,'open your laptop'.'mk',to_date('12-10-2020','dd-mm-yyyy'),to_date('10.10.2020','dd-mm-yyyy'),'completed',2);
+
+insert into intask(task_id,task_name,task_performer,deadline_date,completed_date,task_status,modify_date,priority) values(1,'open your laptop'.'mk',to_date('12-10-2020','dd-mm-yyyy'),to_date('11.10.2020','dd-mm-yyyy'),'completed',1);                                                                                            
+                                                                                           
                                            

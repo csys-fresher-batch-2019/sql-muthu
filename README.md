@@ -17,8 +17,9 @@ reg_state varchar2(20)not null,
 reg_year number not null,
 driven_km number not null,
 constraint fuel_type_cq  check(fuel_type in('diesel','petrol','lpg'',cng')),
-constraint car_owner_id_uq unique(car_owner_id),
-constraint car_id_uq unique(car_id)
+constraint reg_year_cq check(reg_year>=1947 and reg_date<2020),
+constraint car_id_pk primary key(car_id),
+constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name)
 );
 create table
 car_owners(

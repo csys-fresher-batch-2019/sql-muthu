@@ -3,7 +3,7 @@
 
 ## features
  * user should able to upload the car details.
-### Features 1: list all the details
+### Features 1: car details
  ~~~sql
  create table car_details
 (

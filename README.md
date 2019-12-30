@@ -25,7 +25,7 @@ create table
 car_owners(
 owner_id  number ,
 owner_name varchar2(30) not null,
-owner_mobile_no number(10),
+owner_mobile_no number(10) not null,
 constraint owner_id_pk primary key(owner_id),
 constraint mobile_number_cq check(owner_mobile_no like ('[0-9]*10'))
 );

@@ -24,6 +24,8 @@ constraint car_id_uq unique(car_id)
 ### Query:
 insert into car_details(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km)values(21,car_id_sq.nextval,'maruti','maruti ritz','manual','petrol','tamil nadu',2019,20000);
 insert into car_details(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km)values(22,car_id_sq.nextval,'maruti','maruti alto','manual','diesel','kerala',2019,20100);
+insert into car_details(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km)values(23,car_id_sq.nextval,'honda','honda city','manual','diesel','tamil nadu',2019,2000);
+
 select * from car_details;
 
 

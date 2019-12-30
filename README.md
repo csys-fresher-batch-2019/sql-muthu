@@ -19,7 +19,8 @@ driven_km number not null,
 constraint fuel_type_cq  check(fuel_type in('diesel','petrol','lpg'',cng')),
 constraint reg_year_cq check(reg_year>=1947 and reg_date<2020),
 constraint car_id_pk primary key(car_id),
-constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name)
+constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name),
+constraint  driven_km_cq check(driven_km>=0)
 );
 create table
 car_owners(

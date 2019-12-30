@@ -20,6 +20,14 @@ constraint fuel_type_cq  check(fuel_type in('diesel','petrol','lpg'',cng')),
 constraint car_owner_id_uq unique(car_owner_id),
 constraint car_id_uq unique(car_id)
 );
+create table
+car_owners(
+owner_id  number ,
+owner_name varchar2(20) not null,
+owner_mobile_no number(10),
+constraint owner_id_pk primary key(owner_id),
+constraint mobile_number_cq check(owner_mobile_no like ('[0-9]*10'))
+);
 ....
 ### Query:
 insert into car_details(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km)values(21,car_id_sq.nextval,'maruti','maruti ritz','manual','petrol','tamil nadu',2019,20000);

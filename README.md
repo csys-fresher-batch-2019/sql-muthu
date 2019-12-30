@@ -10,9 +10,9 @@
 car_owner_id number not null,
 car_id number not null,
 car_brand varchar2(20) not null,
-car_name varchar2(20)not null,
+car_name varchar2(30)not null,
 tr_type varchar2(20)not null,
-fuel_type  varchar2(20) not null,
+fuel_type  varchar2(10) not null,
 reg_state varchar2(20)not null,
 reg_year number not null,
 driven_km number not null,
@@ -24,7 +24,7 @@ constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name)
 create table
 car_owners(
 owner_id  number ,
-owner_name varchar2(20) not null,
+owner_name varchar2(30) not null,
 owner_mobile_no number(10),
 constraint owner_id_pk primary key(owner_id),
 constraint mobile_number_cq check(owner_mobile_no like ('[0-9]*10'))

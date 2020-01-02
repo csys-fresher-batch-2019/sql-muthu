@@ -37,7 +37,7 @@ insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(11,car_id_sq.nextval,'audi','audi','manual','diesel','tamil nadu',2019,2000,348782);
 ```
 #### TABLE
-...
+
 | car_owner_id | car_id | car_brand | car_name | tr_type | fuel_type | reg_state  | reg_year | driven_km |   price   |update_date  |
 |--------------|--------|-----------|----------|---------|-----------|------------|----------|-----------|-----------|-------------|
 | 134          | 231    | maruti    | alto     | manual  | petrol    | tamil nadu | 2018     | 20,0000   | 1145000   |02-01-20 PM  |

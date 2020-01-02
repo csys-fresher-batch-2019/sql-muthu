@@ -3,7 +3,7 @@
 
 ## features
  * user should able to upload the car details.
-### Features 1: car details
+### Features 1: add car details and owner information
  ~~~sql
  create table car_detail
 (
@@ -26,6 +26,10 @@ constraint car_id_pk primary key(car_id),
 constraint status_ch check(status in('update','ordered','delevered')),
 constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name)
 );
+...
+* add the car detail:
+...
+
 create sequence car_id_sq start with 1001 increment by 1;
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(21,car_id_sq.nextval,'maruti','maruti ritz','manual','petrol','tamil nadu',2019,20000,110890);
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(21,car_id_sq.nextval,'maruti','maruti alto','manual','diesel','kerala',2019,20100,789076);
@@ -39,6 +43,8 @@ insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,
 | 134          | 231    | maruti    | alto     | manual  | petrol    | tamil nadu | 2018     | 20,0000   | 1145000   |02-01-20 PM  |
 | 135          | 984    | maruti    | ritz     | manual  | petrol    | kerala     | 2017     | 679030    | 1245000   |02-01-20 PM  |
 | 136          | 983    | honda     | city     | manual  | petrol    | mumbai     | 2016     | 157890    | 649000    |02-01-20 PM  |
+
+### Feature 2:car seller details
 ~~~sql
 create table 
 car_seller(
@@ -64,6 +70,7 @@ select * from car_seller;
 | 39        | pearl        | 8923940920      |
 | 11        | sugu         | 8674638292      | 
 
+feature
 ~~sql
 create table car_order(
 order_id number,

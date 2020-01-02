@@ -4,7 +4,7 @@
 ## features
  * user should able to upload the car details.
 ### Features 1: add car details and owner information
- ~~~sql
+ ```sql
  create table car_detail
 (
 car_owner_id number,
@@ -26,26 +26,26 @@ constraint car_id_pk primary key(car_id),
 constraint status_ch check(status in('update','ordered','delevered')),
 constraint car_own_car_name_brand_uq unique(car_owner_id,car_brand,car_name)
 );
-...
+```
 * add the car detail:
-...
-
+```sql
 create sequence car_id_sq start with 1001 increment by 1;
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(21,car_id_sq.nextval,'maruti','maruti ritz','manual','petrol','tamil nadu',2019,20000,110890);
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(21,car_id_sq.nextval,'maruti','maruti alto','manual','diesel','kerala',2019,20100,789076);
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(23,car_id_sq.nextval,'honda','honda city','manual','diesel','tamil nadu',2019,2000,894048);
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(39,car_id_sq.nextval,'audi','audi-zada','manual','diesel','tamil nadu',2019,2000,684984);
 insert into car_detail(car_owner_id,car_id,car_brand,car_name,tr_type,fuel_type,reg_state,reg_year,driven_km,price)values(11,car_id_sq.nextval,'audi','audi','manual','diesel','tamil nadu',2019,2000,348782);
-
+```
 #### TABLE
+...
 | car_owner_id | car_id | car_brand | car_name | tr_type | fuel_type | reg_state  | reg_year | driven_km |   price   |update_date  |
 |--------------|--------|-----------|----------|---------|-----------|------------|----------|-----------|-----------|-------------|
 | 134          | 231    | maruti    | alto     | manual  | petrol    | tamil nadu | 2018     | 20,0000   | 1145000   |02-01-20 PM  |
 | 135          | 984    | maruti    | ritz     | manual  | petrol    | kerala     | 2017     | 679030    | 1245000   |02-01-20 PM  |
 | 136          | 983    | honda     | city     | manual  | petrol    | mumbai     | 2016     | 157890    | 649000    |02-01-20 PM  |
 
-### Feature 2:car seller details
-~~~sql
+### Feature 2:car seller details:
+```sql
 create table 
 car_seller(
 seller_id  number,
@@ -54,14 +54,15 @@ seller_contact_no number not null,
 constraint owner_id_pk primary key(seller_id),
 constraint seller_contact_no_ck check(length(to_char(seller_contact_no))=10)
 );
+
 insert into car_seller(seller_id,seller_name,seller_contact_no)values(23,'kannna',8973456768);
 insert into car_seller(seller_id,seller_name,seller_contact_no)values(21,'selva raj',7894030293);
 insert into car_seller(seller_id,seller_name,seller_contact_no)values(39,'pearl',8923940920);
 insert into car_seller(seller_id,seller_name,seller_contact_no)values(11,'sugu',8674638292);
+```
+* select * from car_seller;
 
-### TABLE 2
-
-select * from car_seller;
+### table
 
 | seller_id | seller_name  |seller_contact_no|
 |---------- |--------------|-----------------|
@@ -70,8 +71,9 @@ select * from car_seller;
 | 39        | pearl        | 8923940920      |
 | 11        | sugu         | 8674638292      | 
 
-feature
-~~sql
+## features: order the car
+
+```sql
 create table car_order(
 order_id number,
 buyer_name varchar2(20)not null,
@@ -91,9 +93,11 @@ constraint car_seller_order_id_uq unique(car_id,seller_id),
 constraint test_drive_cq check(test_drive in ('yes','no')),
 constraint car_status_ck check(status in('ordered','cancelled','delivered','shipped'))
 );
+
 insert into car_order(order_id,buyer_name,buyer_contact_number,car_id,seller_id,test_drive,status)values(order_id_sq.nextval,'kanna',8970393728,1001,21,'yes','ordered');
 insert into car_order(order_id,buyer_name,buyer_contact_number,car_id,seller_id,test_drive,status)values(order_id_sq.nextval,'pearl',8970393756,1002,21,'yes','ordered');
-### TABLE : 
+```
+### table : 
 | order_id | buyer_name | buyer_phone_number | car_id | seller_id | test_drive | ordered_date | delivered_date| 
 |----------|------------|--------------------|--------|-----------|------------|--------------|---------------|
 | 20       | kanna      | 8970393728         | 1001   | 21        |     yes    |   02-01-20   |    12-01-20   |

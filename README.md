@@ -107,6 +107,15 @@ insert into car_order(order_id,buyer_name,buyer_contact_number,car_id,seller_id,
 ```sql
 update car_detail  set status='ordered' where car_id=(select car_id from car_order where car_order.car_id=car_detail.car_id); 
 ```
+####table:
+| car_owner_id | car_id | car_branad | car_name    | tr_type | fuel_type | reg_state  | reg_year | driven_km | price  | updated_date                   | status  |
+|--------------|--------|------------|-------------|---------|-----------|------------|----------|-----------|--------|--------------------------------|---------|
+| 11           | 1005   | audi       | audi        | manual  | diesel    | tamil nadu | 2019     | 2000      | 348782 | 02-01-20 03:31:13.997000000 PM | update  |
+| 21           | 1001   | maruti     | maruti ritz | manual  | petrol    | tamil nadu | 2019     | 20000     | 110890 | 02-01-20 03:31:13.970000000 PM | ordered |
+| 21           | 1002   | maruti     | maruti alto | manual  | diesel    | kerala     | 2019     | 20100     | 789076 | 02-01-20 03:31:13.977000000 PM | ordered |
+| 23           | 1003   | honda      | honda city  | manual  | diesel    | tamil nadu | 2019     | 2000      | 894048 | 02-01-20 03:31:13.982000000 PM | update  |
+| 39           | 1004   | audi       | audi-zada   | manual  | diesel    | tamil nadu | 2019     | 2000      | 684984 | 02-01-20 03:31:13.990000000 PM | update  |
+
 select query for  gather the car information depend on the car brand;
 ```sql
 select * from car_detail where car_brand='maruti';

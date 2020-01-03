@@ -130,6 +130,15 @@ select query for  gather the owner information depends on car id:
 ```sql
 select* from car_detail t,car_seller r where t.car_owner_id=r.seller_id;
 ```
+### table
+| car_owner_id | car_id | car_branad | car_name    | tr_type | fuel_type | reg_state  | reg_year | driven_km | price  | updated_date                   | status  | seller_name | seller_contact_no |
+|--------------|--------|------------|-------------|---------|-----------|------------|----------|-----------|--------|--------------------------------|---------|-------------|-------------------|
+| 21           | 1001   | maruti     | maruti ritz | manual  | petrol    | tamil nadu | 2019     | 20000     | 110890 | 02-01-20 03:31:13.970000000 PM | ordered | selva raj   | 7894030293        |
+| 21           | 1002   | maruti     | maruti alto | manual  | diesel    | kerala     | 2019     | 20100     | 789076 | 02-01-20 03:31:13.977000000 PM | ordered | selva raj   | 7894030293        |
+| 23           | 1003   | honda      | honda city  | manual  | diesel    | tamil nadu | 2019     | 2000      | 894048 | 02-01-20 03:31:13.982000000 PM | update  | kannna      | 8973456768        |
+| 39           | 1004   | audi       | audi-zada   | manual  | diesel    | tamil nadu | 2019     | 2000      | 684984 | 02-01-20 03:31:13.990000000 PM | update  | pearl       | 8923940920        |
+| 11           | 1005   | audi       | audi        | manual  | diesel    | tamil nadu | 2019     | 2000      | 348782 | 02-01-20 03:31:13.997000000 PM | update  | sugu        | 8674638292        |
+
 select query for display the car_owner details depend on  registration state:
 ```sql
 select * from car_seller  where seller_id =(select car_owner_id from car_detail where reg_state='kerala');

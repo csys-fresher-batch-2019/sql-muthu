@@ -120,6 +120,12 @@ select query for  gather the car information depend on the car brand;
 ```sql
 select * from car_detail where car_brand='maruti';
 ```
+#### table
+| car_id | car_owner_id | car_branad | car_name    | tr_type | fuel_type | reg_state  | reg_year | driven_km | price  | updated_date                   | status  |
+|--------|--------------|------------|-------------|---------|-----------|------------|----------|-----------|--------|--------------------------------|---------|
+| 1001   | 21           | maruti     | maruti ritz | manual  | petrol    | tamil nadu | 2019     | 20000     | 110890 | 02-01-20 03:31:13.970000000 PM | ordered |
+| 1002   | 21           | maruti     | maruti alto | manual  | diesel    | kerala     | 2019     | 20100     | 789076 | 02-01-20 03:31:13.977000000 PM | ordered |
+
 select query for  gather the owner information depends on car id:
 ```sql
 select* from car_detail t,car_seller r where t.car_owner_id=r.seller_id;

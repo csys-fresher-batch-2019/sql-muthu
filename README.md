@@ -144,9 +144,11 @@ to view all ordered cars;(using join and group by)
 select c.car_brand, c.car_name,s.seller_id ,s.seller_name from car_detail c,car_seller s where c.status='ordered' and c.car_owner_id=s.seller_id group by c.car_brand,c.car_name,s.seller_id,s.seller_name;
 ```
 view the car_status:
-``sql
+```sql
 select car_available(1001)as car_status from dual;
-###function
+```
+###function:
+```sql
 create or replace FUNCTION CAR_AVAILABLE(fn_car_id number)
 RETURN VARCHAR2 AS 
 statuss varchar2(20);
@@ -154,7 +156,6 @@ BEGIN
 select status into statuss from car_detail where car_id=fn_car_id ; 
   RETURN statuss;
 END CAR_AVAILABLE;
-
-select * from car_detail c ,car_order d  c.car_id=d.car_id where c.owner_id=(select * from car_seller f where c.owner_id=f.seller_id);
+```
 
 

@@ -102,3 +102,59 @@ insert into car_order(order_id,buyer_name,buyer_contact_number,car_id,seller_id,
 |----------|------------|--------------------|--------|-----------|------------|--------------|---------------|
 | 20       | kanna      | 8970393728         | 1001   | 21        |     yes    |   02-01-20   |    12-01-20   |
 | 21       | pearl      | 8970393756         | 1002   | 21        |     yes    |   03-01-20   |    13-01-20   |
+
+###--update the car status in car_details table:
+```sql
+update car_detail  set status='ordered' where car_id=(select car_id from car_order where car_order.car_id=car_detail.car_id); 
+```
+select query for  gather the car information depend on the car brand;
+```sql
+select * from car_detail where car_brand='maruti';
+```
+select query for  gather the owner information depends on car id:
+```sql
+select* from car_detail t,car_seller r where t.car_owner_id=r.seller_id;
+```
+select query for display the car_owner details depend on  registration state:
+```sql
+select * from car_seller  where seller_id =(select car_owner_id from car_detail where reg_state='kerala');
+```
+select query for display the car detail depends on car registration state
+```sql
+select * from  car_detail t left outer join car_seller d on t.car_owner_id=d.seller_id where reg_state='tamil nadu'; 
+```
+select query for  display all the ordered  cars details with seller details;
+```sql
+select * from car_detail where status='ordered';
+```
+select query for  display the car details  using some cases(car_brand,car_model,car,kellometer,reg_state)
+```sql
+select * from  car_detail t left outer join car_seller d on t.car_owner_id=d.seller_id where t.reg_state='tamil nadu' and t.driven_km>=2000 and driven_km <=20000 and t.car_brand='audi' and t.status='update';
+```
+to view all available cars:
+```sql
+select car_brand, car_name,count(car_brand)as available_car_count from car_detail where status='update' group by car_brand,car_name;
+```
+select query for  display the car details  using some cases(tr_type,fuel_type)
+```sql
+select * from car_detail c  right outer join car_seller d on c.car_owner_id=d.seller_id where c.tr_type='manual'and c.fuel_type='petrol';
+```
+to view all ordered cars;(using join and group by)
+```sql
+select c.car_brand, c.car_name,s.seller_id ,s.seller_name from car_detail c,car_seller s where c.status='ordered' and c.car_owner_id=s.seller_id group by c.car_brand,c.car_name,s.seller_id,s.seller_name;
+```
+view the car_status:
+``sql
+select car_available(1001)as car_status from dual;
+###function
+create or replace FUNCTION CAR_AVAILABLE(fn_car_id number)
+RETURN VARCHAR2 AS 
+statuss varchar2(20);
+BEGIN
+select status into statuss from car_detail where car_id=fn_car_id ; 
+  RETURN statuss;
+END CAR_AVAILABLE;
+
+select * from car_detail c ,car_order d  c.car_id=d.car_id where c.owner_id=(select * from car_seller f where c.owner_id=f.seller_id);
+
+

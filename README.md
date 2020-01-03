@@ -107,7 +107,7 @@ insert into car_order(order_id,buyer_name,buyer_contact_number,car_id,seller_id,
 ```sql
 update car_detail  set status='ordered' where car_id=(select car_id from car_order where car_order.car_id=car_detail.car_id); 
 ```
-####table:
+#### table:
 | car_owner_id | car_id | car_branad | car_name    | tr_type | fuel_type | reg_state  | reg_year | driven_km | price  | updated_date                   | status  |
 |--------------|--------|------------|-------------|---------|-----------|------------|----------|-----------|--------|--------------------------------|---------|
 | 11           | 1005   | audi       | audi        | manual  | diesel    | tamil nadu | 2019     | 2000      | 348782 | 02-01-20 03:31:13.997000000 PM | update  |
